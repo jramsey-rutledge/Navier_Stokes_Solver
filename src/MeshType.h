@@ -18,7 +18,7 @@ public:
     std::vector<double> xc, yc;   // cell centers
     std::vector<double> xf, yf;   // cell faces
 
-    virtual void create() = 0;
+    virtual void create(const std::string& filename) = 0;
 
     virtual ~MeshType() {}
 };

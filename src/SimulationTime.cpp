@@ -4,18 +4,18 @@
 #include <fstream>
 
 // ---- constructor ----- //
-SimulationTime::SimulationTime(){
-    read();
+SimulationTime::SimulationTime(const std::string& filename){
+    read(filename);
     disp();
     time = startTime;
     timeStep = 0;
 }
 
 // ------ member functions ------- //
-void SimulationTime::read () {
+void SimulationTime::read (const std::string& filename) {
     // read startTime , dt , Nt , and writeInterval from controlDict.inp
     std::ifstream infile;
-    infile.open("input/controlDict.inp");
+    infile.open(filename);
 
     if (!infile) {
         std::cout << "Error opening File\n";

@@ -14,10 +14,10 @@ double time; // current simulation time
 int timeStep; // current time step number
 
 // --- constructor --- //
-SimulationTime();
+SimulationTime(const std::string& filename);
 
 // --- member functions --- //
-void read(); // read time parameters from file
+void read(const std::string& filename); // read time parameters from file
 void disp() const ; // display time inputs to terminal
 void advance(); // increment time and Timestep
 bool run() const; // continue running?

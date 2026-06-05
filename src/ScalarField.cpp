@@ -31,8 +31,8 @@ void ScalarField::write(double t) const {
 
     file << std::scientific << std::setprecision(16);
 
-    for (int j = 1; j <= Ny; j++) {
-        for (int i = 1; i <= Nx; i++) {
+    for (int j = 0; j < Ny+2; j++) {
+        for (int i = 0; i < Nx+2; i++) {
             file << get(i, j) << "\n";
         }
     }

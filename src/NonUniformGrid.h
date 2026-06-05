@@ -16,7 +16,7 @@ class NonUniformGrid : public MeshType {
     public:
     double beta_x, beta_y;        // clustering strength
 
-    void create() override;
+    void create(const std::string& filename) override;
 
 };
 

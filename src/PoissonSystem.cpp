@@ -40,6 +40,8 @@ void PoissonSystem::BuildA(const MeshType& Mesh) {
     // interior nodes
     for (int i=1; i<=Nx; i++){
         for (int j=1; j<=Ny; j++){
+
+            row = j*Nx2 + i;
             
             double dxe = Mesh.xc[i+1] - Mesh.xc[i];
             double dxw = Mesh.xc[i]   - Mesh.xc[i-1];

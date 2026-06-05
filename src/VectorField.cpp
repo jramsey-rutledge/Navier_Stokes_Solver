@@ -64,7 +64,7 @@ void VectorField::write(double t) {
 
     file << std::scientific << std::setprecision(16);
 
-    file << "# Ex Ey\n";
+    //file << "# Ex Ey\n";
     for (int j = 1; j <= Ny; j++) {
         for (int i = 1; i <= Nx; i++) {
             file << get_x(i, j) << " " << get_y(i, j) << "\n";

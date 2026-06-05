@@ -8,10 +8,10 @@
 #include <math.h>
 using namespace std;
 
-void UniformGrid::create(){
+void UniformGrid::create(const std::string& filename){
     // Read inputs
     ifstream infile;
-    infile.open("input/mesh.inp");
+    infile.open(filename);
 
     if (!infile) {
         cout << "Error opening File\n";
