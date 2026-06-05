@@ -3,6 +3,7 @@
 #include <iomanip>
 #include "ScalarField.h"
 
+
 ScalarField::ScalarField(const MeshType& mesh, std::string fieldName)
     : Nx(mesh.Nx), Ny(mesh.Ny),
       Nx2(mesh.Nx + 2), Ny2(mesh.Ny + 2),

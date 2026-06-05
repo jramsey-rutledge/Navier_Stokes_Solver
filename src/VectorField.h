@@ -8,6 +8,8 @@ using namespace std;
 
 #include "MeshType.h"
 
+class ScalarField;
+
 /**
 * @brief Vector field data structure
 *
@@ -73,6 +75,8 @@ class VectorField {
         VectorField operator+(const VectorField& other) const;
         
         void write(double t);
+
+        void ComputeFromStreamFunction(const MeshType& Mesh,const ScalarField& psi);
 };
 
 #endif

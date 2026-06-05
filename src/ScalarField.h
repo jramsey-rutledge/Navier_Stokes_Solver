@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "MeshType.h"
+#include "bcType.h"
 
 /**
 * @brief Scalar field data structure
@@ -16,8 +17,10 @@ class ScalarField {
         int Nx2, Ny2;
         std::vector<double> data;
         std::string fieldName;
-
+        
     public:
+        bcType BC;
+
         /**
          * @brief Constructor to initialize the scalar field with the mesh dimensions and a name.
          * 

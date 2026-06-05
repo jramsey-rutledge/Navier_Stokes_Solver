@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "VectorField.h"
+#include "ScalarField.h"
 
 VectorField::VectorField(const string& fieldName, const MeshType& mesh) {
     name = fieldName;
@@ -72,4 +73,43 @@ void VectorField::write(double t) {
 
     file.close();
 
+}
+
+void VectorField::ComputeFromStreamFunction(const MeshType& Mesh,const ScalarField& psi) {
+    int Nx = Mesh.Nx;
+    int Ny = Mesh.Ny;
+
+    for (int i=1; i<=Nx; i++) {
+        for (int j=1; j<=Ny; j++) {
+
+            double dy =  Mesh.yc[j+1] - Mesh.yc[j-1];
+
+            double dx = Mesh.xc[i+1] - Mesh.xc[i-1];
+
+            double u = (psi.get(i,j+1)-psi.get(i,j-1))/dy;
+
+            double v = -(psi.get(i+1,j)-psi.get(i-1,j))/dx;
+
+            set_x(i,j,u);
+            set_y(i,j,v);
+        }
+    }
+
+    // bottom and top
+    for(int i=0;i<Nx2;i++) {
+        set_x(i,0,0.0);
+        set_y(i,0,0.0);
+
+        set_x(i,Ny+1,1.0);   // lid velocity
+        set_y(i,Ny+1,0.0);
+    }
+
+    // left and right
+    for(int j=0;j<Ny2;j++){
+        set_x(0,j,0.0);
+        set_y(0,j,0.0);
+
+        set_x(Nx+1,j,0.0);
+        set_y(Nx+1,j,0.0);
+    }
 }
