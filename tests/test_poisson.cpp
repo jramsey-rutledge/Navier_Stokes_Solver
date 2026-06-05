@@ -94,19 +94,20 @@ void blob() {
     U.ComputeFromStreamFunction(mesh,psi);
 
     psi.write(0.0);
+    U.write(0.0);
 
-    double psiMax = -1e20;
-    double psiMin =  1e20;
+    // double psiMax = -1e20;
+    // double psiMin =  1e20;
 
-    for(int i=1;i<=mesh.Nx;i++){
-        for(int j=1;j<=mesh.Ny;j++){
-            psiMax = std::max(psiMax,psi.get(i,j));
-            psiMin = std::min(psiMin,psi.get(i,j));
-        }
-    }
+    // for(int i=1;i<=mesh.Nx;i++){
+    //     for(int j=1;j<=mesh.Ny;j++){
+    //         psiMax = std::max(psiMax,psi.get(i,j));
+    //         psiMin = std::min(psiMin,psi.get(i,j));
+    //     }
+    // }
 
-    std::cout << "psiMin = " << psiMin << std::endl;
-    std::cout << "psiMax = " << psiMax << std::endl;
+    // std::cout << "psiMin = " << psiMin << std::endl;
+    // std::cout << "psiMax = " << psiMax << std::endl;
 }
 
 /**

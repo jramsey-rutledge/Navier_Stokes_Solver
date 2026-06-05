@@ -58,3 +58,25 @@ axis equal tight
 xlabel('x')
 ylabel('y')
 title('Analytical Gaussian Blob')
+
+%% Velocity Field
+U = load('U_0.000000.dat');
+
+ux = U(:,1);
+uy = U(:,1);
+
+x = load('x.dat');
+y = load('y.dat');
+
+xc = x(2:end-1);
+yc = y(2:end-1);
+
+[X,Y] = meshgrid(xc,yc);
+
+figure
+quiver(X,Y,ux,uy)
+
+axis equal
+xlabel('x')
+ylabel('y')
+title('Velocity Field')
